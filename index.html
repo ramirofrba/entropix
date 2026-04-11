@@ -1,0 +1,275 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Entropix SRL</title>
+  <style>
+    :root{
+      --primary:#17375e;
+      --accent:#2f5597;
+      --light:#f5f7fb;
+      --text:#1f1f1f;
+      --muted:#5b6573;
+      --white:#ffffff;
+      --border:#d9e1f2;
+    }
+    *{box-sizing:border-box}
+    body{
+      margin:0;
+      font-family: Arial, Helvetica, sans-serif;
+      color:var(--text);
+      background:var(--light);
+      line-height:1.55;
+    }
+    .container{width:min(1120px,92%);margin:0 auto}
+    header{
+      background:linear-gradient(135deg,var(--primary),var(--accent));
+      color:#fff;
+      padding:24px 0 72px;
+    }
+    nav{
+      display:flex;justify-content:space-between;align-items:center;gap:16px;flex-wrap:wrap;
+    }
+    .brand{font-size:28px;font-weight:700;letter-spacing:.3px}
+    .nav-links{display:flex;gap:18px;flex-wrap:wrap;font-size:14px}
+    .nav-links a{color:#fff;text-decoration:none}
+    .hero{
+      padding:56px 0 8px;
+      display:grid;
+      grid-template-columns:1.25fr .95fr;
+      gap:28px;
+      align-items:center;
+    }
+    .hero h1{margin:0 0 14px;font-size:40px;line-height:1.15}
+    .hero p{margin:0 0 22px;font-size:18px;color:#eef3ff}
+    .cta-row{display:flex;gap:12px;flex-wrap:wrap}
+    .btn{
+      display:inline-block;padding:12px 18px;border-radius:8px;text-decoration:none;font-weight:700;
+      border:1px solid rgba(255,255,255,.35)
+    }
+    .btn.primary{background:#fff;color:var(--primary);border-color:#fff}
+    .btn.secondary{background:transparent;color:#fff}
+    .hero-card{
+      background:rgba(255,255,255,.1);
+      border:1px solid rgba(255,255,255,.18);
+      border-radius:14px;
+      padding:22px;
+      backdrop-filter:blur(4px);
+    }
+    .hero-card h3{margin:0 0 12px;font-size:18px}
+    .hero-card ul{margin:0;padding-left:18px}
+    section{padding:56px 0}
+    h2{margin:0 0 10px;font-size:30px;color:var(--primary)}
+    .section-intro{margin:0 0 26px;color:var(--muted);max-width:900px}
+    .grid-3{display:grid;grid-template-columns:repeat(3,1fr);gap:18px}
+    .grid-2{display:grid;grid-template-columns:repeat(2,1fr);gap:18px}
+    .card{
+      background:#fff;border:1px solid var(--border);border-radius:14px;padding:22px;
+      box-shadow:0 8px 20px rgba(16,24,40,.05);
+    }
+    .card h3{margin:0 0 10px;color:var(--primary);font-size:20px}
+    .card p{margin:0;color:var(--muted)}
+    .card ul{margin:0;padding-left:18px;color:var(--muted)}
+    .clients{display:grid;grid-template-columns:repeat(5,1fr);gap:14px}
+    .client{
+      background:#fff;border:1px solid var(--border);border-radius:12px;padding:16px;text-align:center;
+      font-weight:700;color:var(--primary)
+    }
+    .stats{display:grid;grid-template-columns:repeat(4,1fr);gap:16px;margin-top:24px}
+    .stat{background:#fff;border:1px solid var(--border);border-radius:12px;padding:18px;text-align:center}
+    .stat strong{display:block;font-size:28px;color:var(--primary);margin-bottom:4px}
+    footer{background:#0f223d;color:#dbe5f7;padding:28px 0;margin-top:22px}
+    footer p{margin:4px 0}
+    @media (max-width: 920px){
+      .hero,.grid-3,.grid-2,.clients,.stats{grid-template-columns:1fr}
+      .hero h1{font-size:34px}
+    }
+  </style>
+</head>
+<body>
+  <header>
+    <div class="container">
+      <nav>
+        <div class="brand">Entropix SRL</div>
+        <div class="nav-links">
+          <a href="#quienes-somos">Quiénes somos</a>
+          <a href="#servicios">Servicios</a>
+          <a href="#clientes">Clientes</a>
+          <a href="#casos">Casos de éxito</a>
+          <a href="#oficinas">Oficinas</a>
+        </div>
+      </nav>
+
+      <div class="hero">
+        <div>
+          <h1>Desarrollo de software a medida y servicios tecnológicos asociados para organizaciones que requieren soluciones confiables, trazables y orientadas al negocio.</h1>
+          <p>
+            Entropix SRL se dedica al desarrollo de software a medida y a la prestación de servicios tecnológicos asociados, a través de proyectos y servicios orientados a atender necesidades de sus clientes.
+          </p>
+          <div class="cta-row">
+            <a class="btn primary" href="#servicios">Ver servicios</a>
+            <a class="btn secondary" href="#quienes-somos">Conocer la empresa</a>
+          </div>
+        </div>
+        <div class="hero-card">
+          <h3>Certificaciones</h3>
+          <ul>
+            <li>ISO 9001:2015</li>
+            <li>ISO/IEC 27001</li>
+          </ul>
+          <h3 style="margin-top:18px;">Modelo de prestación</h3>
+          <ul>
+            <li>Proyectos de desarrollo</li>
+            <li>Servicios de desarrollo</li>
+            <li>Soporte especializado</li>
+            <li>Trabajo con enfoque de calidad y mejora continua</li>
+          </ul>
+        </div>
+      </div>
+    </div>
+  </header>
+
+  <section id="quienes-somos">
+    <div class="container">
+      <h2>Quiénes somos</h2>
+      <p class="section-intro">
+        Entropix SRL desarrolla y mantiene soluciones de software, presta servicios de desarrollo bajo distintas modalidades de contratación y participa en iniciativas que requieren relevamiento, diseño, construcción, validación, implementación y soporte de soluciones informáticas.
+      </p>
+      <div class="grid-3">
+        <div class="card">
+          <h3>Misión</h3>
+          <p>Ser un proveedor confiable de soluciones informáticas y servicios asociados, orientado a generar valor para sus clientes mediante la prestación de servicios de desarrollo de software y soporte especializado, armonizando los objetivos de la organización, de sus clientes y de sus colaboradores.</p>
+        </div>
+        <div class="card">
+          <h3>Visión</h3>
+          <p>Entropix SRL aspira a consolidarse como una empresa reconocida por la calidad de sus servicios, su capacidad técnica, su flexibilidad operativa y su contribución al desarrollo de soluciones tecnológicas alineadas con las necesidades de sus clientes.</p>
+        </div>
+        <div class="card">
+          <h3>Valores</h3>
+          <ul>
+            <li>Trabajo en equipo</li>
+            <li>Colaboración</li>
+            <li>Servicio</li>
+            <li>Mejora continua</li>
+            <li>Formación</li>
+            <li>Responsabilidad organizacional</li>
+          </ul>
+        </div>
+      </div>
+
+      <div class="stats">
+        <div class="stat"><strong>2</strong><span>oficinas en CABA</span></div>
+        <div class="stat"><strong>2</strong><span>modalidades de prestación</span></div>
+        <div class="stat"><strong>2</strong><span>certificaciones de referencia</span></div>
+        <div class="stat"><strong>1</strong><span>sistema de gestión y mejora continua</span></div>
+      </div>
+    </div>
+  </section>
+
+  <section id="servicios">
+    <div class="container">
+      <h2>Nuestros servicios</h2>
+      <p class="section-intro">
+        La empresa comercializa, planifica, desarrolla, implementa y presta servicios de desarrollo de software y servicios tecnológicos asociados, en línea con el alcance de su sistema de gestión.
+      </p>
+      <div class="grid-3">
+        <div class="card">
+          <h3>Desarrollo de software a medida</h3>
+          <p>Prestación orientada a proyectos con actividades de inicio, planificación, relevamiento y análisis de requerimientos, diseño, construcción, pruebas, implantación y cierre.</p>
+        </div>
+        <div class="card">
+          <h3>Servicios de desarrollo</h3>
+          <p>Prestación continua o iterativa mediante asignación de equipos, recepción y priorización de requerimientos, estimación y ejecución de tareas, validación de entregas y seguimiento periódico del servicio.</p>
+        </div>
+        <div class="card">
+          <h3>Soporte especializado</h3>
+          <p>Acompañamiento operativo y técnico para sostener soluciones informáticas, atender necesidades específicas de los clientes y facilitar la continuidad del servicio.</p>
+        </div>
+        <div class="card">
+          <h3>Relevamiento y análisis</h3>
+          <p>Actividades previas al inicio de proyectos o servicios para comprender necesidades, analizar factibilidad y formalizar condiciones de prestación.</p>
+        </div>
+        <div class="card">
+          <h3>Implementación y validación</h3>
+          <p>Acciones de despliegue, puesta en marcha, revisión y validación para asegurar que las soluciones respondan a los requisitos definidos.</p>
+        </div>
+        <div class="card">
+          <h3>Mejora y evolución tecnológica</h3>
+          <p>Servicios destinados a sostener la evolución funcional y técnica de las soluciones, con foco en calidad, continuidad operativa y respuesta a nuevas necesidades.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section id="clientes">
+    <div class="container">
+      <h2>Clientes</h2>
+      <p class="section-intro">
+        Entropix SRL presta servicios a organizaciones que requieren soluciones informáticas alineadas con sus necesidades operativas y de negocio.
+      </p>
+      <div class="clients">
+        <div class="client">Banco Delta</div>
+        <div class="client">Salud Integral</div>
+        <div class="client">Logística Federal</div>
+        <div class="client">Comercial Andina</div>
+        <div class="client">Grupo Horizonte</div>
+      </div>
+    </div>
+  </section>
+
+  <section id="casos">
+    <div class="container">
+      <h2>Casos de éxito</h2>
+      <p class="section-intro">
+        A continuación se presentan ejemplos representativos del tipo de soluciones que la empresa desarrolla y sostiene para sus clientes.
+      </p>
+      <div class="grid-2">
+        <div class="card">
+          <h3>Portal de autogestión para entidad financiera</h3>
+          <p>Proyecto de desarrollo a medida que integró relevamiento, diseño, construcción, validación e implementación de una solución orientada a mejorar la trazabilidad de gestiones y la experiencia de usuario.</p>
+        </div>
+        <div class="card">
+          <h3>Servicio continuo de evolución para organización de salud</h3>
+          <p>Servicio de desarrollo bajo modalidad iterativa para atender requerimientos evolutivos, priorizar tareas, validar entregas y sostener la continuidad operativa de una plataforma crítica.</p>
+        </div>
+        <div class="card">
+          <h3>Automatización de procesos administrativos</h3>
+          <p>Solución informática destinada a estructurar información, reducir tareas manuales y mejorar el seguimiento de actividades mediante procesos controlados y registros consistentes.</p>
+        </div>
+        <div class="card">
+          <h3>Integración de información operativa y comercial</h3>
+          <p>Implementación de mecanismos para consolidar datos, mejorar la disponibilidad de información y facilitar el seguimiento de servicios y proyectos dentro de un entorno controlado.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section id="oficinas">
+    <div class="container">
+      <h2>Nuestras oficinas</h2>
+      <p class="section-intro">
+        La empresa cuenta con presencia en dos ubicaciones estratégicas de la Ciudad Autónoma de Buenos Aires, desde las cuales coordina actividades de dirección, gestión y operación.
+      </p>
+      <div class="grid-2">
+        <div class="card">
+          <h3>Distrito Tecnológico – Parque Patricios</h3>
+          <p>Espacio orientado a actividades de desarrollo, coordinación operativa y trabajo colaborativo de equipos vinculados a proyectos y servicios.</p>
+        </div>
+        <div class="card">
+          <h3>Puerto Madero</h3>
+          <p>Espacio destinado a reuniones de dirección, gestión comercial, seguimiento ejecutivo y atención de clientes.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <footer>
+    <div class="container">
+      <p><strong>Entropix SRL</strong></p>
+      <p>Desarrollo de software a medida · Servicios de desarrollo · Servicios tecnológicos asociados</p>
+      <p>Ciudad Autónoma de Buenos Aires, Argentina</p>
+    </div>
+  </footer>
+</body>
+</html>
