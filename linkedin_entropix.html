@@ -1,0 +1,758 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Entropix SRL | LinkedIn Profiles</title>
+  <style>
+    :root {
+      --li-blue: #0a66c2;
+      --li-bg: #f3f2ef;
+      --li-white: #ffffff;
+      --li-text: rgba(0, 0, 0, 0.9);
+      --li-text-muted: rgba(0, 0, 0, 0.6);
+      --li-border: #e0e0e0;
+      --li-hover: #f3f3f3;
+    }
+
+    * { box-sizing: border-box; }
+    html { scroll-behavior: smooth; }
+    
+    body {
+      margin: 0;
+      font-family: -apple-system, system-ui, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", "Fira Sans", Ubuntu, Oxygen, "Oxygen Sans", Cantarell, "Droid Sans", "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol", "Lucida Grande", Helvetica, Arial, sans-serif;
+      background-color: var(--li-bg);
+      color: var(--li-text);
+      line-height: 1.5;
+    }
+
+    /* Header LinkedIn Style */
+    header {
+      background-color: var(--li-white);
+      border-bottom: 1px solid var(--li-border);
+      position: sticky;
+      top: 0;
+      z-index: 1000;
+      height: 52px;
+      display: flex;
+      align-items: center;
+    }
+
+    .nav-container {
+      width: min(1128px, 100%);
+      margin: 0 auto;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      padding: 0 16px;
+    }
+
+    .logo-search { display: flex; align-items: center; gap: 8px; }
+    .logo-search svg { color: var(--li-blue); width: 34px; height: 34px; }
+    .search-mock { 
+      background: #edf3f8; 
+      padding: 0 12px; 
+      height: 34px; 
+      border-radius: 4px; 
+      display: flex; 
+      align-items: center; 
+      color: var(--li-text-muted);
+      font-size: 14px;
+      width: 280px;
+    }
+
+    .nav-icons { display: flex; gap: 24px; color: var(--li-text-muted); font-size: 12px; }
+    .nav-item { display: flex; flex-direction: column; align-items: center; cursor: pointer; text-decoration: none; color: inherit; }
+    .nav-item:hover { color: var(--li-text); }
+    .nav-item svg { width: 24px; height: 24px; }
+
+    /* Main Layout */
+    .main-wrapper {
+      width: min(1128px, 100%);
+      margin: 24px auto;
+      display: grid;
+      grid-template-columns: 1fr 300px;
+      gap: 24px;
+      padding: 0 16px;
+    }
+
+    /* Index Card */
+    .index-card {
+      background: var(--li-white);
+      border-radius: 8px;
+      border: 1px solid var(--li-border);
+      padding: 16px;
+      margin-bottom: 24px;
+      grid-column: 1 / -1;
+    }
+
+    .index-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
+      gap: 12px;
+      margin-top: 16px;
+    }
+
+    .mini-link {
+      display: flex;
+      align-items: center;
+      gap: 12px;
+      text-decoration: none;
+      color: var(--li-text);
+      padding: 8px;
+      border-radius: 4px;
+      transition: background 0.2s;
+    }
+
+    .mini-link:hover { background: var(--li-hover); }
+    .mini-avatar { width: 40px; height: 40px; border-radius: 50%; object-fit: cover; border: 1px solid var(--li-border); }
+
+    /* Profile Card */
+    .profile-card {
+      background: var(--li-white);
+      border-radius: 8px;
+      border: 1px solid var(--li-border);
+      overflow: hidden;
+      margin-bottom: 12px;
+    }
+
+    .banner {
+      height: 200px;
+      background: linear-gradient(135deg, #17375e 0%, #2f5597 100%);
+      width: 100%;
+    }
+
+    .profile-main-info {
+      padding: 0 24px 24px;
+      position: relative;
+    }
+
+    .profile-photo-wrapper {
+      width: 152px;
+      height: 152px;
+      border-radius: 50%;
+      border: 4px solid var(--li-white);
+      margin-top: -100px;
+      overflow: hidden;
+      background: #fff;
+    }
+
+    .profile-photo { width: 100%; height: 100%; object-fit: cover; }
+
+    .identity h1 { font-size: 24px; margin: 12px 0 4px; }
+    .identity .headline { font-size: 16px; color: var(--li-text); margin-bottom: 4px; }
+    .identity .location { font-size: 14px; color: var(--li-text-muted); }
+
+    .btn-group { display: flex; gap: 8px; margin-top: 16px; }
+    .btn-li { 
+      padding: 6px 16px; 
+      border-radius: 160px; 
+      font-weight: 600; 
+      font-size: 16px; 
+      cursor: pointer;
+      text-decoration: none;
+      display: inline-block;
+    }
+    .btn-blue { background: var(--li-blue); color: #fff; border: none; }
+    .btn-blue:hover { background: #004182; }
+    .btn-outline { border: 1px solid var(--li-blue); color: var(--li-blue); background: #fff; }
+    .btn-outline:hover { background: #eef3f8; border-width: 2px; padding: 5px 15px; }
+
+    /* Section Styling */
+    .profile-section {
+      background: var(--li-white);
+      border-radius: 8px;
+      border: 1px solid var(--li-border);
+      padding: 24px;
+      margin-bottom: 12px;
+    }
+
+    .section-title { font-size: 20px; font-weight: 600; margin: 0 0 16px; }
+    
+    .experience-item, .education-item {
+      display: flex;
+      gap: 12px;
+      padding-bottom: 16px;
+      border-bottom: 1px solid var(--li-border);
+      margin-bottom: 16px;
+    }
+    .experience-item:last-child, .education-item:last-child { border: none; padding-bottom: 0; margin-bottom: 0; }
+
+    .item-logo { width: 48px; height: 48px; background: #eee; border-radius: 4px; flex-shrink: 0; display: flex; align-items: center; justify-content: center; font-weight: bold; color: #aaa; font-size: 12px; text-align: center; line-height: 1; }
+    .item-content h4 { font-size: 16px; margin: 0; color: var(--li-text); }
+    .item-content .subtitle { font-size: 14px; margin: 0; color: var(--li-text); }
+    .item-content .date { font-size: 14px; color: var(--li-text-muted); margin: 0; }
+    .item-content .desc { font-size: 14px; margin-top: 8px; color: var(--li-text); }
+
+    .skill-tag {
+      border-bottom: 1px solid var(--li-border);
+      padding: 12px 0;
+      width: 100%;
+      font-weight: 600;
+    }
+    .skill-tag:last-child { border: none; }
+
+    /* Sidebar Mock */
+    .sidebar-card {
+      background: var(--li-white);
+      border-radius: 8px;
+      border: 1px solid var(--li-border);
+      padding: 16px;
+      margin-bottom: 12px;
+    }
+    .sidebar-card h3 { font-size: 16px; margin: 0 0 12px; font-weight: 600; }
+    .sidebar-item { display: flex; gap: 12px; margin-bottom: 12px; text-decoration: none; color: inherit; }
+    .sidebar-item img { width: 48px; height: 48px; border-radius: 50%; object-fit: cover; }
+    .sidebar-item h4 { font-size: 14px; margin: 0; }
+    .sidebar-item p { font-size: 12px; color: var(--li-text-muted); margin: 0; }
+
+    @media (max-width: 800px) {
+      .main-wrapper { grid-template-columns: 1fr; }
+      .sidebar { display: none; }
+      .banner { height: 120px; }
+      .profile-photo-wrapper { width: 120px; height: 120px; margin-top: -60px; }
+    }
+  </style>
+</head>
+<body>
+
+  <header>
+    <div class="nav-container">
+      <div class="logo-search">
+        <svg viewBox="0 0 24 24" fill="currentColor">
+          <path d="M19 3a2 2 0 0 1 2 2v14a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h14m-.5 15.5v-5.3a3.3 3.3 0 0 0-3.3-3.3c-1 0-1.9.5-2.4 1.2v-1.1H9.5v8.5h3.3v-4.4c0-.2 0-.5.1-.7a1.3 1.3 0 0 1 1.2-1c.9 0 1.2.7 1.2 1.7v4.4h3.2M6.7 7.9c1.1 0 1.7-.7 1.7-1.6 0-.9-.6-1.6-1.7-1.6s-1.7.7-1.7 1.6c0 .9.6 1.6 1.7 1.6M5 18.5h3.3V10H5v8.5Z"></path>
+        </svg>
+        <div class="search-mock">Buscar</div>
+      </div>
+      <div class="nav-icons">
+        <div class="nav-item">
+          <svg viewBox="0 0 24 24" fill="currentColor"><path d="M23 9v2h-2v7a3 3 0 0 1-3 3h-4v-6h-4v6H6a3 3 0 0 1-3-3v-7H1V9l11-7 11 7Z"></path></svg>
+          <span>Inicio</span>
+        </div>
+        <div class="nav-item">
+          <svg viewBox="0 0 24 24" fill="currentColor"><path d="M12 12a5 5 0 1 1 5-5 5 5 0 0 1-5 5Zm7 9h-2v-2a3 3 0 0 0-3-3H10a3 3 0 0 0-3 3v2H5v-2a5 5 0 0 1 5-5h4a5 5 0 0 1 5 5v2Z"></path></svg>
+          <span>Mi red</span>
+        </div>
+        <div class="nav-item">
+          <svg viewBox="0 0 24 24" fill="currentColor"><path d="M17 6V4a2 2 0 0 0-2-2H9a2 2 0 0 0-2 2v2H2v15a1 1 0 0 0 1 1h18a1 1 0 0 0 1-1V6h-5ZM9 4h6v2H9V4Z"></path></svg>
+          <span>Empleos</span>
+        </div>
+        <div class="nav-item">
+          <svg viewBox="0 0 24 24" fill="currentColor"><path d="M12 2a10 10 0 1 0 10 10A10 10 0 0 0 12 2Zm0 16a1.5 1.5 0 1 1 1.5-1.5A1.5 1.5 0 0 1 12 18Zm1.2-5.1-.2.2v1.2H11v-2l.2-.2c1.2-1.2 2-1.8 2-2.7a1.2 1.2 0 1 0-2.4 0H9a3.3 3.3 0 1 1 6.6 0c0 1.5-1.1 2.5-2.4 3.7Z"></path></svg>
+          <span>Mensajes</span>
+        </div>
+      </div>
+    </div>
+  </header>
+
+  <div class="main-wrapper">
+    <div class="index-card">
+      <h2 style="font-size: 18px; margin: 0 0 12px;">Directorio de Equipo - Entropix SRL</h2>
+      <div class="index-grid">
+        <a href="#ramiro-ferrero" class="mini-link"><img src="ramiro_ferrero (1).png" class="mini-avatar" alt="">Ramiro Ferrero</a>
+        <a href="#martin-pereyra" class="mini-link"><img src="martin_pereyra (1).png" class="mini-avatar" alt="">Martín Pereyra</a>
+        <a href="#sebastian-acosta" class="mini-link"><img src="sebastian_acosta.png" class="mini-avatar" alt="">Sebastián Acosta</a>
+        <a href="#veronica-sosa" class="mini-link"><img src="veronica_sosa (1).png" class="mini-avatar" alt="">Verónica Sosa</a>
+        <a href="#andres-romano" class="mini-link"><img src="andres_romano.png" class="mini-avatar" alt="">Andrés Romano</a>
+        <a href="#sofia-ianini" class="mini-link"><img src="sofia_ianini.png" class="mini-avatar" alt="">Sofía Ianini</a>
+        <a href="#leandro-bustos" class="mini-link"><img src="leandro_bustos.png" class="mini-avatar" alt="">Leandro Bustos</a>
+      </div>
+    </div>
+
+    <!-- MAIN CONTENT AREA -->
+    <div class="content">
+      
+      <!-- PERFIL: RAMIRO FERRERO -->
+      <section id="ramiro-ferrero">
+        <div class="profile-card">
+          <div class="banner"></div>
+          <div class="profile-main-info">
+            <div class="profile-photo-wrapper">
+              <img src="ramiro_ferrero (1).png" class="profile-photo" alt="Ramiro Ferrero">
+            </div>
+            <div class="identity">
+              <h1>Ramiro Ferrero</h1>
+              <div class="headline">Director General en Entropix SRL | Estrategia Tecnológica y Liderazgo</div>
+              <div class="location">Buenos Aires, Argentina</div>
+              <div class="btn-group">
+                <button class="btn-li btn-blue">Tengo interés en</button>
+                <button class="btn-li btn-outline">Añadir sección</button>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="profile-section">
+          <h2 class="section-title">Acerca de</h2>
+          <p>Director General de Entropix SRL, empresa especializada en desarrollo de software a medida y servicios tecnológicos asociados. Cuenta con trayectoria en conducción de organizaciones de base tecnológica, articulación entre estrategia y operación, y desarrollo de servicios orientados a clientes corporativos.</p>
+        </div>
+        <div class="profile-section">
+          <h2 class="section-title">Experiencia</h2>
+          <div class="experience-item">
+            <div class="item-logo">EN</div>
+            <div class="item-content">
+              <h4>Director General</h4>
+              <p class="subtitle">Entropix SRL · Jornada completa</p>
+              <p class="date">ene. 2021 - actualidad</p>
+              <p class="desc">Dirección general, lineamientos estratégicos y supervisión organizacional.</p>
+            </div>
+          </div>
+          <div class="experience-item">
+            <div class="item-logo">NS</div>
+            <div class="item-content">
+              <h4>Gerente de Operaciones</h4>
+              <p class="subtitle">NovaSys Solutions</p>
+              <p class="date">mar. 2016 - dic. 2020</p>
+              <p class="desc">Coordinación de proyectos y servicios de desarrollo tecnológico.</p>
+            </div>
+          </div>
+          <div class="experience-item">
+            <div class="item-logo">DP</div>
+            <div class="item-content">
+              <h4>Jefe de Proyectos</h4>
+              <p class="subtitle">DataProcess Consulting</p>
+              <p class="date">ago. 2011 - feb. 2016</p>
+              <p class="desc">Gestión de proyectos, seguimiento de entregables y coordinación de equipos técnicos.</p>
+            </div>
+          </div>
+        </div>
+        <div class="profile-section">
+          <h2 class="section-title">Educación</h2>
+          <div class="education-item">
+            <div class="item-logo">UTN</div>
+            <div class="item-content">
+              <h4>Ingeniero en Sistemas de Información</h4>
+              <p class="subtitle">Universidad Tecnológica Nacional</p>
+            </div>
+          </div>
+          <div class="education-item">
+            <div class="item-logo">IAE</div>
+            <div class="item-content">
+              <h4>Programa de Dirección General</h4>
+              <p class="subtitle">IAE Business School</p>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- PERFIL: MARTÍN PEREYRA -->
+      <section id="martin-pereyra">
+        <div class="profile-card">
+          <div class="banner" style="background: linear-gradient(135deg, #1e3a8a 0%, #3b82f6 100%);"></div>
+          <div class="profile-main-info">
+            <div class="profile-photo-wrapper">
+              <img src="martin_pereyra (1).png" class="profile-photo" alt="Martín Pereyra">
+            </div>
+            <div class="identity">
+              <h1>Martín Pereyra</h1>
+              <div class="headline">Gerente Comercial en Entropix SRL | Desarrollo de Negocios B2B</div>
+              <div class="location">Buenos Aires, Argentina</div>
+              <div class="btn-group">
+                <button class="btn-li btn-blue">Mensaje</button>
+                <button class="btn-li btn-outline">Más</button>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="profile-section">
+          <h2 class="section-title">Acerca de</h2>
+          <p>Profesional con experiencia en gestión comercial de servicios tecnológicos, desarrollo de oportunidades, relación con clientes y coordinación de propuestas para proyectos y servicios de software.</p>
+        </div>
+        <div class="profile-section">
+          <h2 class="section-title">Experiencia</h2>
+          <div class="experience-item">
+            <div class="item-logo">EN</div>
+            <div class="item-content">
+              <h4>Gerente Comercial</h4>
+              <p class="subtitle">Entropix SRL</p>
+              <p class="date">mar. 2022 - actualidad</p>
+              <p class="desc">Liderazgo del proceso comercial y coordinación estratégica con áreas técnicas.</p>
+            </div>
+          </div>
+          <div class="experience-item">
+            <div class="item-logo">IN</div>
+            <div class="item-content">
+              <h4>Account Manager</h4>
+              <p class="subtitle">Integra IT Partners</p>
+              <p class="date">abr. 2017 - feb. 2022</p>
+              <p class="desc">Gestión de cuentas corporativas y preventa técnica de soluciones IT.</p>
+            </div>
+          </div>
+          <div class="experience-item">
+            <div class="item-logo">SL</div>
+            <div class="item-content">
+              <h4>Ejecutivo de Ventas B2B</h4>
+              <p class="subtitle">Softlink Argentina</p>
+              <p class="date">jun. 2013 - mar. 2017</p>
+              <p class="desc">Desarrollo comercial de servicios de software y fidelización de clientes.</p>
+            </div>
+          </div>
+        </div>
+        <div class="profile-section">
+          <h2 class="section-title">Educación</h2>
+          <div class="education-item">
+            <div class="item-logo">UADE</div>
+            <div class="item-content">
+              <h4>Licenciado en Comercialización</h4>
+              <p class="subtitle">Universidad Argentina de la Empresa</p>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- PERFIL: SEBASTIÁN ACOSTA -->
+      <section id="sebastian-acosta">
+        <div class="profile-card">
+          <div class="banner" style="background: #27272a;"></div>
+          <div class="profile-main-info">
+            <div class="profile-photo-wrapper">
+              <img src="sebastian_acosta.png" class="profile-photo" alt="Sebastián Acosta">
+            </div>
+            <div class="identity">
+              <h1>Sebastián Acosta</h1>
+              <div class="headline">Gerente de Operaciones en Entropix SRL | Agile PM & Delivery</div>
+              <div class="location">Buenos Aires, Argentina</div>
+            </div>
+          </div>
+        </div>
+        <div class="profile-section">
+          <h2 class="section-title">Acerca de</h2>
+          <p>Ingeniero orientado a la gestión operativa de proyectos de desarrollo y servicios tecnológicos. Posee experiencia en coordinación de equipos, seguimiento de entregas, asignación de recursos y control de la ejecución de servicios.</p>
+        </div>
+        <div class="profile-section">
+          <h2 class="section-title">Experiencia</h2>
+          <div class="experience-item">
+            <div class="item-logo">EN</div>
+            <div class="item-content">
+              <h4>Gerente de Operaciones</h4>
+              <p class="subtitle">Entropix SRL</p>
+              <p class="date">feb. 2022 - actualidad</p>
+              <p class="desc">Coordinación operativa integral de proyectos y servicios de software.</p>
+            </div>
+          </div>
+          <div class="experience-item">
+            <div class="item-logo">DC</div>
+            <div class="item-content">
+              <h4>Project Manager Senior</h4>
+              <p class="subtitle">DevCore Solutions</p>
+              <p class="date">may. 2016 - ene. 2022</p>
+              <p class="desc">Gestión integral de proyectos de software bajo metodologías ágiles.</p>
+            </div>
+          </div>
+          <div class="experience-item">
+            <div class="item-logo">GN</div>
+            <div class="item-content">
+              <h4>Analista Funcional / Líder de Proyecto</h4>
+              <p class="subtitle">Grupo Netware</p>
+              <p class="date">mar. 2010 - abr. 2016</p>
+              <p class="desc">Relevamiento, análisis funcional y conducción de equipos de desarrollo.</p>
+            </div>
+          </div>
+        </div>
+        <div class="profile-section">
+          <h2 class="section-title">Educación</h2>
+          <div class="education-item">
+            <div class="item-logo">CAE</div>
+            <div class="item-content">
+              <h4>Ingeniero en Sistemas</h4>
+              <p class="subtitle">Universidad CAECE</p>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- PERFIL: VERÓNICA SOSA -->
+      <section id="veronica-sosa">
+        <div class="profile-card">
+          <div class="banner" style="background: #831843;"></div>
+          <div class="profile-main-info">
+            <div class="profile-photo-wrapper">
+              <img src="veronica_sosa (1).png" class="profile-photo" alt="Verónica Sosa">
+            </div>
+            <div class="identity">
+              <h1>Verónica Sosa</h1>
+              <div class="headline">Gerente de Gestión de Talento en Entropix SRL | HR Specialist</div>
+              <div class="location">Buenos Aires, Argentina</div>
+            </div>
+          </div>
+        </div>
+        <div class="profile-section">
+          <h2 class="section-title">Acerca de</h2>
+          <p>Licenciada con experiencia en gestión de personas dentro de empresas de servicios y tecnología. Su trayectoria está vinculada a procesos de incorporación, administración de personal, desarrollo, formación y acompañamiento a áreas de negocio.</p>
+        </div>
+        <div class="profile-section">
+          <h2 class="section-title">Experiencia</h2>
+          <div class="experience-item">
+            <div class="item-logo">EN</div>
+            <div class="item-content">
+              <h4>Gerente de Gestión de Talento</h4>
+              <p class="subtitle">Entropix SRL</p>
+              <p class="date">mar. 2022 - actualidad</p>
+              <p class="desc">Responsable de estrategia de talento, administración de personal y formación interna.</p>
+            </div>
+          </div>
+          <div class="experience-item">
+            <div class="item-logo">TA</div>
+            <div class="item-content">
+              <h4>HR Business Partner</h4>
+              <p class="subtitle">Tecnología Aplicada S.A.</p>
+              <p class="date">jul. 2017 - feb. 2022</p>
+              <p class="desc">Selección, formación técnica y acompañamiento a áreas operativas de IT.</p>
+            </div>
+          </div>
+          <div class="experience-item">
+            <div class="item-logo">SU</div>
+            <div class="item-content">
+              <h4>Analista de Recursos Humanos</h4>
+              <p class="subtitle">Sistemas Urbanos</p>
+              <p class="date">abr. 2012 - jun. 2017</p>
+              <p class="desc">Administración de personal y coordinación de programas de capacitación.</p>
+            </div>
+          </div>
+        </div>
+        <div class="profile-section">
+          <h2 class="section-title">Educación</h2>
+          <div class="education-item">
+            <div class="item-logo">UBA</div>
+            <div class="item-content">
+              <h4>Licenciada en Relaciones del Trabajo</h4>
+              <p class="subtitle">Universidad de Buenos Aires (UBA)</p>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- PERFIL: ANDRÉS ROMANO -->
+      <section id="andres-romano">
+        <div class="profile-card">
+          <div class="banner" style="background: #064e3b;"></div>
+          <div class="profile-main-info">
+            <div class="profile-photo-wrapper">
+              <img src="andres_romano.png" class="profile-photo" alt="Andrés Romano">
+            </div>
+            <div class="identity">
+              <h1>Andrés Romano</h1>
+              <div class="headline">Gerente de Administración y Finanzas en Entropix SRL</div>
+              <div class="location">Buenos Aires, Argentina</div>
+            </div>
+          </div>
+        </div>
+        <div class="profile-section">
+          <h2 class="section-title">Acerca de</h2>
+          <p>Contador Público con vasta experiencia en administración, finanzas y control de gestión para empresas de servicios tecnológicos. Especializado en optimización de circuitos de facturación y soporte documental a la operación corporativa.</p>
+        </div>
+        <div class="profile-section">
+          <h2 class="section-title">Experiencia</h2>
+          <div class="experience-item">
+            <div class="item-logo">EN</div>
+            <div class="item-content">
+              <h4>Gerente de Administración y Finanzas</h4>
+              <p class="subtitle">Entropix SRL</p>
+              <p class="date">feb. 2022 - actualidad</p>
+              <p class="desc">Conducción de procesos administrativos, financieros y documentales estratégicos.</p>
+            </div>
+          </div>
+          <div class="experience-item">
+            <div class="item-logo">SD</div>
+            <div class="item-content">
+              <h4>Jefe de Administración</h4>
+              <p class="subtitle">Servicios Digitales del Plata</p>
+              <p class="date">ene. 2016 - ene. 2022</p>
+              <p class="desc">Supervisión de facturación, cobranzas y seguimiento financiero de proyectos.</p>
+            </div>
+          </div>
+          <div class="experience-item">
+            <div class="item-logo">GL</div>
+            <div class="item-content">
+              <h4>Analista Contable Senior</h4>
+              <p class="subtitle">Grupo Litoral Consultores</p>
+              <p class="date">mar. 2011 - dic. 2015</p>
+              <p class="desc">Registraciones, análisis contable y soporte administrativo general.</p>
+            </div>
+          </div>
+        </div>
+        <div class="profile-section">
+          <h2 class="section-title">Educación</h2>
+          <div class="education-item">
+            <div class="item-logo">UBA</div>
+            <div class="item-content">
+              <h4>Contador Público</h4>
+              <p class="subtitle">Universidad de Buenos Aires (UBA)</p>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- PERFIL: SOFÍA IANINI -->
+      <section id="sofia-ianini">
+        <div class="profile-card">
+          <div class="banner" style="background: #4338ca;"></div>
+          <div class="profile-main-info">
+            <div class="profile-photo-wrapper">
+              <img src="sofia_ianini.png" class="profile-photo" alt="Sofía Ianini">
+            </div>
+            <div class="identity">
+              <h1>Sofía Ianini</h1>
+              <div class="headline">Gerente de Calidad y Procesos en Entropix SRL | ISO Expert</div>
+              <div class="location">Buenos Aires, Argentina</div>
+            </div>
+          </div>
+        </div>
+        <div class="profile-section">
+          <h2 class="section-title">Acerca de</h2>
+          <p>Experta en gestión de calidad y procesos organizacionales. Con amplia trayectoria en la implementación de normas ISO 9001 e ISO 27001, Sofía lidera la mejora continua en Entropix SRL, asegurando que cada entrega cumpla con los estándares más exigentes de la industria.</p>
+        </div>
+        <div class="profile-section">
+          <h2 class="section-title">Experiencia</h2>
+          <div class="experience-item">
+            <div class="item-logo">EN</div>
+            <div class="item-content">
+              <h4>Gerente de Calidad y Procesos</h4>
+              <p class="subtitle">Entropix SRL</p>
+              <p class="date">abr. 2022 - actualidad</p>
+              <p class="desc">Responsable de calidad, procesos, documentación técnica y certificaciones internacionales (ISO 9001/27001).</p>
+            </div>
+          </div>
+          <div class="experience-item">
+            <div class="item-logo">AC</div>
+            <div class="item-content">
+              <h4>Consultora Senior en Sistemas de Gestión</h4>
+              <p class="subtitle">Axis Consulting Group</p>
+              <p class="date">ago. 2016 - mar. 2022</p>
+              <p class="desc">Implementación y auditoría de sistemas de gestión integrados para empresas IT.</p>
+            </div>
+          </div>
+          <div class="experience-item">
+            <div class="item-logo">SS</div>
+            <div class="item-content">
+              <h4>Analista de Procesos</h4>
+              <p class="subtitle">SIGA Soluciones</p>
+              <p class="date">may. 2012 - jul. 2016</p>
+              <p class="desc">Relevamiento de procesos de negocio y soporte a auditorías externas.</p>
+            </div>
+          </div>
+        </div>
+        <div class="profile-section">
+          <h2 class="section-title">Educación</h2>
+          <div class="education-item">
+            <div class="item-logo">UNL</div>
+            <div class="item-content">
+              <h4>Ingeniera Industrial</h4>
+              <p class="subtitle">Universidad Nacional de La Plata (UNLP)</p>
+            </div>
+          </div>
+        </div>
+        <div class="profile-section">
+          <h2 class="section-title">Aptitudes</h2>
+          <div class="skill-tag">Auditoría Interna ISO 9001</div>
+          <div class="skill-tag">Seguridad de la Información (ISO 27001)</div>
+          <div class="skill-tag">Mejora de Procesos</div>
+        </div>
+      </section>
+
+      <!-- PERFIL: LEANDRO BUSTOS -->
+      <section id="leandro-bustos">
+        <div class="profile-card">
+          <div class="banner" style="background: #0f172a;"></div>
+          <div class="profile-main-info">
+            <div class="profile-photo-wrapper">
+              <img src="leandro_bustos.png" class="profile-photo" alt="Leandro Bustos">
+            </div>
+            <div class="identity">
+              <h1>Leandro Bustos</h1>
+              <div class="headline">Gerente de IT en Entropix SRL | Cloud & Infrastructure Specialist</div>
+              <div class="location">Buenos Aires, Argentina</div>
+            </div>
+          </div>
+        </div>
+        <div class="profile-section">
+          <h2 class="section-title">Acerca de</h2>
+          <p>Ingeniero especialista en infraestructura híbrida y seguridad de la información. Con experiencia en la administración de entornos cloud y soporte de alta disponibilidad para operaciones críticas de desarrollo de software.</p>
+        </div>
+        <div class="profile-section">
+          <h2 class="section-title">Experiencia</h2>
+          <div class="experience-item">
+            <div class="item-logo">EN</div>
+            <div class="item-content">
+              <h4>Gerente de IT</h4>
+              <p class="subtitle">Entropix SRL</p>
+              <p class="date">may. 2022 - actualidad</p>
+              <p class="desc">Responsable de infraestructura híbrida, soporte interno y continuidad tecnológica de las operaciones.</p>
+            </div>
+          </div>
+          <div class="experience-item">
+            <div class="item-logo">CN</div>
+            <div class="item-content">
+              <h4>Infrastructure Lead</h4>
+              <p class="subtitle">CloudNet Argentina</p>
+              <p class="date">jun. 2017 - abr. 2022</p>
+              <p class="desc">Administración de entornos de nube y soporte especializado a usuarios internos.</p>
+            </div>
+          </div>
+          <div class="experience-item">
+            <div class="item-logo">BT</div>
+            <div class="item-content">
+              <h4>Administrador de Sistemas</h4>
+              <p class="subtitle">Baires Tech Services</p>
+              <p class="date">mar. 2012 - may. 2017</p>
+              <p class="desc">Soporte de infraestructura física, redes y servidores corporativos.</p>
+            </div>
+          </div>
+        </div>
+        <div class="profile-section">
+          <h2 class="section-title">Educación</h2>
+          <div class="education-item">
+            <div class="item-logo">UB</div>
+            <div class="item-content">
+              <h4>Ingeniero en Informática</h4>
+              <p class="subtitle">Universidad de Belgrano</p>
+            </div>
+          </div>
+        </div>
+      </section>
+
+    </div>
+
+    <!-- SIDEBAR AREA -->
+    <div class="sidebar">
+      <div class="sidebar-card">
+        <h3>Contactos sugeridos</h3>
+        <div class="sidebar-item">
+          <img src="ramiro_ferrero (1).png" alt="">
+          <div>
+            <h4>Ramiro Ferrero</h4>
+            <p>Director General</p>
+            <button class="btn-li btn-outline" style="font-size: 12px; margin-top: 4px;">Conectar</button>
+          </div>
+        </div>
+        <div class="sidebar-item">
+          <img src="sofia_ianini.png" alt="">
+          <div>
+            <h4>Sofía Ianini</h4>
+            <p>Gerente de Calidad</p>
+            <button class="btn-li btn-outline" style="font-size: 12px; margin-top: 4px;">Conectar</button>
+          </div>
+        </div>
+      </div>
+      
+      <div class="sidebar-card">
+        <h3>Gente que también vio...</h3>
+        <div class="sidebar-item">
+          <div class="item-logo" style="border-radius: 50%;">IT</div>
+          <div>
+            <h4>Consultora Tech</h4>
+            <p>Empresa · Software</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <footer style="background: var(--li-bg); color: var(--li-text-muted); padding: 40px 16px; text-align: center; border-top: 1px solid var(--li-border);">
+    <div class="container">
+      <p>Entropix SRL © 2026. Todos los derechos reservados.</p>
+      <p style="font-size: 12px;">Material institucional para fines de capacitación y contexto profesional.</p>
+    </div>
+  </footer>
+
+</body>
+</html>

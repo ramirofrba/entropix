@@ -3,273 +3,358 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Entropix SRL</title>
+  <title>Entropix SRL | Soluciones Tecnológicas de Grado Empresarial</title>
+  
+  <!-- Tipografías -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Plus+Jakarta+Sans:wght@700;800&display=swap" rel="stylesheet">
+  
   <style>
-    :root{
-      --primary:#17375e;
-      --accent:#2f5597;
-      --light:#f5f7fb;
-      --text:#1f1f1f;
-      --muted:#5b6573;
-      --white:#ffffff;
-      --border:#d9e1f2;
+    :root {
+      --primary: #0f172a;
+      --accent: #2563eb;
+      --accent-soft: #eff6ff;
+      --text-main: #475569;
+      --text-heading: #1e293b;
+      --bg-light: #f8fafc;
+      --white: #ffffff;
+      --border: #e2e8f0;
+      --role-color: #64748b;
     }
-    *{box-sizing:border-box}
-    body{
-      margin:0;
-      font-family: Arial, Helvetica, sans-serif;
-      color:var(--text);
-      background:var(--light);
-      line-height:1.55;
-    }
-    .container{width:min(1120px,92%);margin:0 auto}
-    header{
-      background:linear-gradient(135deg,var(--primary),var(--accent));
-      color:#fff;
-      padding:24px 0 72px;
-    }
-    nav{
-      display:flex;justify-content:space-between;align-items:center;gap:16px;flex-wrap:wrap;
-    }
-    .brand{font-size:28px;font-weight:700;letter-spacing:.3px}
-    .nav-links{display:flex;gap:18px;flex-wrap:wrap;font-size:14px}
-    .nav-links a{color:#fff;text-decoration:none}
-    .hero{
-      padding:56px 0 8px;
-      display:grid;
-      grid-template-columns:1.25fr .95fr;
-      gap:28px;
-      align-items:center;
-    }
-    .hero h1{margin:0 0 14px;font-size:40px;line-height:1.15}
-    .hero p{margin:0 0 22px;font-size:18px;color:#eef3ff}
-    .cta-row{display:flex;gap:12px;flex-wrap:wrap}
-    .btn{
-      display:inline-block;padding:12px 18px;border-radius:8px;text-decoration:none;font-weight:700;
-      border:1px solid rgba(255,255,255,.35)
-    }
-    .btn.primary{background:#fff;color:var(--primary);border-color:#fff}
-    .btn.secondary{background:transparent;color:#fff}
-    .hero-card{
-      background:rgba(255,255,255,.1);
-      border:1px solid rgba(255,255,255,.18);
-      border-radius:14px;
-      padding:22px;
-      backdrop-filter:blur(4px);
-    }
-    .hero-card h3{margin:0 0 12px;font-size:18px}
-    .hero-card ul{margin:0;padding-left:18px}
-    section{padding:56px 0}
-    h2{margin:0 0 10px;font-size:30px;color:var(--primary)}
-    .section-intro{margin:0 0 26px;color:var(--muted);max-width:900px}
-    .grid-3{display:grid;grid-template-columns:repeat(3,1fr);gap:18px}
-    .grid-2{display:grid;grid-template-columns:repeat(2,1fr);gap:18px}
-    .card{
-      background:#fff;border:1px solid var(--border);border-radius:14px;padding:22px;
-      box-shadow:0 8px 20px rgba(16,24,40,.05);
-    }
-    .card h3{margin:0 0 10px;color:var(--primary);font-size:20px}
-    .card p{margin:0;color:var(--muted)}
-    .card ul{margin:0;padding-left:18px;color:var(--muted)}
-    .clients{display:grid;grid-template-columns:repeat(5,1fr);gap:14px}
-    .client{
-      background:#fff;border:1px solid var(--border);border-radius:12px;padding:16px;text-align:center;
-      font-weight:700;color:var(--primary)
-    }
-    .stats{display:grid;grid-template-columns:repeat(4,1fr);gap:16px;margin-top:24px}
-    .stat{background:#fff;border:1px solid var(--border);border-radius:12px;padding:18px;text-align:center}
-    .stat strong{display:block;font-size:28px;color:var(--primary);margin-bottom:4px}
-    footer{background:#0f223d;color:#dbe5f7;padding:28px 0;margin-top:22px}
-    footer p{margin:4px 0}
-    @media (max-width: 920px){
-      .hero,.grid-3,.grid-2,.clients,.stats{grid-template-columns:1fr}
-      .hero h1{font-size:34px}
+
+    * { box-sizing: border-box; margin: 0; padding: 0; }
+    body { font-family: 'Inter', sans-serif; color: var(--text-main); background: var(--bg-light); line-height: 1.6; scroll-behavior: smooth; }
+    h1, h2, h3, .brand { font-family: 'Plus Jakarta Sans', sans-serif; color: var(--text-heading); }
+    .container { width: min(1200px, 90%); margin: 0 auto; }
+
+    /* Navegación */
+    nav { height: 80px; display: flex; justify-content: space-between; align-items: center; border-bottom: 1px solid var(--border); background: rgba(255,255,255,0.8); backdrop-filter: blur(10px); position: sticky; top: 0; z-index: 100; }
+    .brand { font-size: 1.5rem; font-weight: 800; color: var(--primary); text-decoration: none; letter-spacing: -0.02em; }
+    .brand span { color: var(--accent); }
+    .nav-links { display: flex; gap: 32px; }
+    .nav-links a { text-decoration: none; color: var(--text-main); font-weight: 600; font-size: 0.9rem; }
+    .nav-links a:hover { color: var(--accent); }
+
+    /* Hero Section */
+    .hero { padding: 100px 0 80px; display: grid; grid-template-columns: 1.2fr 0.8fr; gap: 60px; align-items: center; }
+    .hero h1 { font-size: clamp(2.5rem, 5vw, 3.8rem); line-height: 1.05; margin-bottom: 24px; letter-spacing: -0.03em; }
+    .hero p { font-size: 1.25rem; margin-bottom: 32px; color: var(--text-main); max-width: 580px; }
+    
+    .cert-badges { display: flex; gap: 16px; margin-top: 40px; }
+    .cert-item { display: flex; align-items: center; gap: 12px; background: var(--white); padding: 14px 20px; border-radius: 16px; border: 1px solid var(--border); box-shadow: 0 4px 12px rgba(0,0,0,0.03); }
+    .cert-icon { width: 32px; height: 32px; color: var(--accent); }
+
+    /* Card Especial */
+    .hero-card { background: var(--primary); color: var(--white); padding: 48px; border-radius: 32px; box-shadow: 0 25px 50px -12px rgba(0,0,0,0.25); }
+    .hero-card h3 { color: var(--white); margin-bottom: 20px; font-size: 1.5rem; }
+    .hero-card ul { list-style: none; }
+    .hero-card li { margin-bottom: 12px; color: #94a3b8; display: flex; align-items: center; gap: 12px; font-size: 0.95rem; }
+    .hero-card li::before { content: '✓'; color: var(--accent); font-weight: 800; }
+
+    /* Secciones */
+    .section-padding { padding: 120px 0; }
+    .section-title { text-align: center; margin-bottom: 80px; }
+    .section-title h2 { font-size: 2.5rem; margin-bottom: 16px; letter-spacing: -0.02em; }
+    
+    .grid-3 { display: grid; grid-template-columns: repeat(3, 1fr); gap: 32px; }
+    .card { background: var(--white); padding: 40px; border-radius: 24px; border: 1px solid var(--border); transition: all 0.3s ease; height: 100%; }
+    .card:hover { border-color: var(--accent); transform: translateY(-4px); box-shadow: 0 20px 25px -5px rgba(0,0,0,0.05); }
+    .card h3 { margin-bottom: 16px; font-size: 1.35rem; }
+    
+    /* Iconos SVG */
+    .icon-box { width: 56px; height: 56px; background: var(--accent-soft); color: var(--accent); border-radius: 14px; display: flex; align-items: center; justify-content: center; margin-bottom: 24px; }
+    .icon-box svg { width: 28px; height: 28px; }
+
+    /* Clientes */
+    .clients-row { display: grid; grid-template-columns: repeat(5, 1fr); gap: 20px; }
+    .client-logo-card { background: var(--white); border: 1px solid var(--border); border-radius: 16px; height: 100px; display: flex; align-items: center; justify-content: center; font-weight: 700; color: #94a3b8; filter: grayscale(1); opacity: 0.7; transition: 0.3s; }
+    .client-logo-card:hover { filter: grayscale(0); opacity: 1; border-color: var(--accent); color: var(--accent); }
+
+    /* Casos de Éxito */
+    .case-card { display: grid; grid-template-columns: 1fr 1.2fr; gap: 40px; background: var(--white); border: 1px solid var(--border); border-radius: 32px; overflow: hidden; margin-bottom: 40px; }
+    .case-visual { background: var(--accent-soft); display: flex; align-items: center; justify-content: center; padding: 40px; }
+    .case-visual svg { width: 120px; height: 120px; color: var(--accent); opacity: 0.8; }
+    .case-content { padding: 48px; }
+    .case-tag { color: var(--accent); font-weight: 800; font-size: 0.75rem; text-transform: uppercase; margin-bottom: 12px; display: block; }
+    .case-content h3 { font-size: 1.8rem; margin-bottom: 20px; }
+
+    /* Equipo */
+    .team-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(240px, 1fr)); gap: 32px; }
+    .team-card { background: var(--white); padding: 32px 24px; border-radius: 28px; border: 1px solid var(--border); text-align: center; }
+    .profile-img { width: 140px; height: 140px; border-radius: 50%; background: #f1f5f9; margin: 0 auto 20px; overflow: hidden; border: 4px solid var(--white); box-shadow: 0 4px 10px rgba(0,0,0,0.08); display: flex; align-items: center; justify-content: center; }
+    .profile-img img { width: 100%; height: 100%; object-fit: cover; }
+    
+    .team-card h4 { font-size: 1.2rem; margin-bottom: 6px; }
+    .team-card h4 a { text-decoration: none; color: var(--text-heading); transition: color 0.2s; }
+    .team-card h4 a:hover { color: var(--accent); text-decoration: underline; }
+    .team-card .role { font-size: 0.85rem; color: var(--role-color); font-weight: 700; text-transform: uppercase; letter-spacing: 0.05em; }
+
+    /* Sedes */
+    .offices-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 32px; }
+    .office-card { background: var(--white); border-radius: 28px; border: 1px solid var(--border); padding: 48px; }
+    .label { display: inline-block; padding: 6px 14px; border-radius: 100px; font-size: 0.75rem; font-weight: 800; margin-bottom: 20px; text-transform: uppercase; }
+
+    /* Footer */
+    footer { background: var(--primary); color: #64748b; padding: 100px 0 50px; }
+    .footer-grid { display: grid; grid-template-columns: 2fr 1.2fr 1.2fr; gap: 60px; border-bottom: 1px solid rgba(255,255,255,0.05); padding-bottom: 60px; }
+    .footer-title { color: var(--white); margin-bottom: 24px; font-size: 1.1rem; }
+    .footer-bottom { text-align: center; padding-top: 40px; font-size: 0.85rem; }
+
+    @media (max-width: 968px) {
+      .hero, .grid-3, .team-grid, .offices-grid, .footer-grid, .case-card, .clients-row { grid-template-columns: 1fr; }
+      .hero { text-align: center; padding-top: 60px; }
+      .hero p { margin: 0 auto 32px; }
+      .cert-badges { justify-content: center; flex-wrap: wrap; }
+      .case-visual { height: 200px; }
     }
   </style>
 </head>
 <body>
-  <header>
-    <div class="container">
-      <nav>
-        <div class="brand">Entropix SRL</div>
-        <div class="nav-links">
-          <a href="#quienes-somos">Quiénes somos</a>
-          <a href="#servicios">Servicios</a>
-          <a href="#clientes">Clientes</a>
-          <a href="#casos">Casos de éxito</a>
-          <a href="#oficinas">Oficinas</a>
-        </div>
-      </nav>
 
-      <div class="hero">
-        <div>
-          <h1>Desarrollo de software a medida y servicios tecnológicos asociados para organizaciones que requieren soluciones confiables, trazables y orientadas al negocio.</h1>
-          <p>
-            Entropix SRL se dedica al desarrollo de software a medida y a la prestación de servicios tecnológicos asociados, a través de proyectos y servicios orientados a atender necesidades de sus clientes.
-          </p>
-          <div class="cta-row">
-            <a class="btn primary" href="#servicios">Ver servicios</a>
-            <a class="btn secondary" href="#quienes-somos">Conocer la empresa</a>
-          </div>
+  <div class="container">
+    <nav>
+      <a href="#" class="brand">ENTROPIX<span>_</span></a>
+      <div class="nav-links">
+        <a href="#empresa">Empresa</a>
+        <a href="#servicios">Servicios</a>
+        <a href="#casos">Casos</a>
+        <a href="#equipo">Equipo</a>
+        <a href="#contacto">Contacto</a>
+      </div>
+    </nav>
+  </div>
+
+  <header class="container hero">
+    <div class="hero-content">
+      <h1>Ingeniería de software con visión de negocio.</h1>
+      <p>Proveemos soluciones tecnológicas robustas y equipos ágiles integrados para organizaciones que demandan excelencia y trazabilidad.</p>
+      <div class="cert-badges">
+        <div class="cert-item">
+          <svg class="cert-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/><path d="m9 12 2 2 4-4"/></svg>
+          <div><strong>ISO 9001</strong><br><small>Gestión de Calidad</small></div>
         </div>
-        <div class="hero-card">
-          <h3>Certificaciones</h3>
-          <ul>
-            <li>ISO 9001:2015</li>
-            <li>ISO/IEC 27001</li>
-          </ul>
-          <h3 style="margin-top:18px;">Modelo de prestación</h3>
-          <ul>
-            <li>Proyectos de desarrollo</li>
-            <li>Servicios de desarrollo</li>
-            <li>Soporte especializado</li>
-            <li>Trabajo con enfoque de calidad y mejora continua</li>
-          </ul>
+        <div class="cert-item">
+          <svg class="cert-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/><circle cx="12" cy="11" r="3"/><path d="M12 14v4"/></svg>
+          <div><strong>ISO 27001</strong><br><small>Seguridad de la Información</small></div>
         </div>
       </div>
+    </div>
+    <div class="hero-card">
+      <h3>Consultoría Estratégica</h3>
+      <p style="color: #94a3b8; margin-bottom: 24px;">Transformamos la complejidad técnica en una ventaja competitiva para su empresa.</p>
+      <ul>
+        <li>Arquitecturas nativas en la nube</li>
+        <li>Modernización de sistemas críticos</li>
+        <li>Gobernanza de datos y seguridad</li>
+      </ul>
     </div>
   </header>
 
-  <section id="quienes-somos">
+  <section id="empresa" class="section-padding">
     <div class="container">
-      <h2>Quiénes somos</h2>
-      <p class="section-intro">
-        Entropix SRL desarrolla y mantiene soluciones de software, presta servicios de desarrollo bajo distintas modalidades de contratación y participa en iniciativas que requieren relevamiento, diseño, construcción, validación, implementación y soporte de soluciones informáticas.
-      </p>
+      <div class="section-title">
+        <h2>Identidad Organizacional</h2>
+        <p>Expertos en la construcción de activos digitales seguros y escalables.</p>
+      </div>
       <div class="grid-3">
         <div class="card">
+          <div class="icon-box">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 2L2 7l10 5 10-5-10-5zM2 17l10 5 10-5M2 12l10 5 10-5"/></svg>
+          </div>
           <h3>Misión</h3>
-          <p>Ser un proveedor confiable de soluciones informáticas y servicios asociados, orientado a generar valor para sus clientes mediante la prestación de servicios de desarrollo de software y soporte especializado, armonizando los objetivos de la organización, de sus clientes y de sus colaboradores.</p>
+          <p>Potenciar el crecimiento de nuestros clientes mediante ingeniería de software de precisión y una gestión transparente de procesos.</p>
         </div>
         <div class="card">
+          <div class="icon-box">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><path d="M12 8l4 4-4 4M8 12h8"/></svg>
+          </div>
           <h3>Visión</h3>
-          <p>Entropix SRL aspira a consolidarse como una empresa reconocida por la calidad de sus servicios, su capacidad técnica, su flexibilidad operativa y su contribución al desarrollo de soluciones tecnológicas alineadas con las necesidades de sus clientes.</p>
+          <p>Ser reconocidos como el socio tecnológico más confiable de la región por nuestra capacidad de resolución y calidad humana.</p>
         </div>
         <div class="card">
+          <div class="icon-box">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M22 11.08V12a10 10 0 1 1-5.93-9.14"/><polyline points="22 4 12 14.01 9 11.01"/></svg>
+          </div>
           <h3>Valores</h3>
-          <ul>
-            <li>Trabajo en equipo</li>
-            <li>Colaboración</li>
-            <li>Servicio</li>
-            <li>Mejora continua</li>
-            <li>Formación</li>
-            <li>Responsabilidad organizacional</li>
-          </ul>
+          <p>Compromiso con el cliente, rigor técnico, formación continua y una fuerte cultura de responsabilidad social.</p>
         </div>
-      </div>
-
-      <div class="stats">
-        <div class="stat"><strong>2</strong><span>oficinas en CABA</span></div>
-        <div class="stat"><strong>2</strong><span>modalidades de prestación</span></div>
-        <div class="stat"><strong>2</strong><span>certificaciones de referencia</span></div>
-        <div class="stat"><strong>1</strong><span>sistema de gestión y mejora continua</span></div>
       </div>
     </div>
   </section>
 
-  <section id="servicios">
+  <section id="servicios" class="section-padding" style="background: white; border-top: 1px solid var(--border);">
     <div class="container">
-      <h2>Nuestros servicios</h2>
-      <p class="section-intro">
-        La empresa comercializa, planifica, desarrolla, implementa y presta servicios de desarrollo de software y servicios tecnológicos asociados, en línea con el alcance de su sistema de gestión.
-      </p>
+      <div class="section-title"><h2>Servicios Principales</h2></div>
       <div class="grid-3">
         <div class="card">
-          <h3>Desarrollo de software a medida</h3>
-          <p>Prestación orientada a proyectos con actividades de inicio, planificación, relevamiento y análisis de requerimientos, diseño, construcción, pruebas, implantación y cierre.</p>
+          <div class="icon-box">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="16 18 22 12 16 6"/><polyline points="8 6 2 12 8 18"/></svg>
+          </div>
+          <h3>Desarrollo a Medida</h3>
+          <p>Construcción integral de productos software alineados a procesos específicos de negocio bajo estándares de alta calidad.</p>
         </div>
         <div class="card">
-          <h3>Servicios de desarrollo</h3>
-          <p>Prestación continua o iterativa mediante asignación de equipos, recepción y priorización de requerimientos, estimación y ejecución de tareas, validación de entregas y seguimiento periódico del servicio.</p>
+          <div class="icon-box">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"/><circle cx="9" cy="7" r="4"/><path d="M23 21v-2a4 4 0 0 0-3-3.87"/><path d="M16 3.13a4 4 0 0 1 0 7.75"/></svg>
+          </div>
+          <h3>Equipos Ágiles</h3>
+          <p>Células de trabajo dinámicas que se integran a su flujo para acelerar la entrega de valor y la innovación.</p>
         </div>
         <div class="card">
-          <h3>Soporte especializado</h3>
-          <p>Acompañamiento operativo y técnico para sostener soluciones informáticas, atender necesidades específicas de los clientes y facilitar la continuidad del servicio.</p>
-        </div>
-        <div class="card">
-          <h3>Relevamiento y análisis</h3>
-          <p>Actividades previas al inicio de proyectos o servicios para comprender necesidades, analizar factibilidad y formalizar condiciones de prestación.</p>
-        </div>
-        <div class="card">
-          <h3>Implementación y validación</h3>
-          <p>Acciones de despliegue, puesta en marcha, revisión y validación para asegurar que las soluciones respondan a los requisitos definidos.</p>
-        </div>
-        <div class="card">
-          <h3>Mejora y evolución tecnológica</h3>
-          <p>Servicios destinados a sostener la evolución funcional y técnica de las soluciones, con foco en calidad, continuidad operativa y respuesta a nuevas necesidades.</p>
+          <div class="icon-box">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="11" width="18" height="11" rx="2" ry="2"/><path d="M7 11V7a5 5 0 0 1 10 0v4"/></svg>
+          </div>
+          <h3>Ciberseguridad</h3>
+          <p>Evaluación de vulnerabilidades y blindaje de activos digitales críticos siguiendo protocolos internacionales.</p>
         </div>
       </div>
     </div>
   </section>
 
-  <section id="clientes">
+  <section id="clientes" class="section-padding">
     <div class="container">
-      <h2>Clientes</h2>
-      <p class="section-intro">
-        Entropix SRL presta servicios a organizaciones que requieren soluciones informáticas alineadas con sus necesidades operativas y de negocio.
-      </p>
-      <div class="clients">
-        <div class="client">Banco Delta</div>
-        <div class="client">Salud Integral</div>
-        <div class="client">Logística Federal</div>
-        <div class="client">Comercial Andina</div>
-        <div class="client">Grupo Horizonte</div>
+      <div class="section-title">
+        <h2>Clientes que confían en nosotros</h2>
+        <p>Acompañamos a líderes de diversas industrias en su evolución tecnológica.</p>
+      </div>
+      <div class="clients-row">
+        <div class="client-logo-card">BANCO DELTA</div>
+        <div class="client-logo-card">SALUD INTEGRAL</div>
+        <div class="client-logo-card">LOGÍSTICA FEDERAL</div>
+        <div class="client-logo-card">COMERCIAL ANDINA</div>
+        <div class="client-logo-card">GRUPO HORIZONTE</div>
       </div>
     </div>
   </section>
 
-  <section id="casos">
+  <section id="casos" class="section-padding" style="background: white; border-top: 1px solid var(--border);">
     <div class="container">
-      <h2>Casos de éxito</h2>
-      <p class="section-intro">
-        A continuación se presentan ejemplos representativos del tipo de soluciones que la empresa desarrolla y sostiene para sus clientes.
-      </p>
-      <div class="grid-2">
-        <div class="card">
-          <h3>Portal de autogestión para entidad financiera</h3>
-          <p>Proyecto de desarrollo a medida que integró relevamiento, diseño, construcción, validación e implementación de una solución orientada a mejorar la trazabilidad de gestiones y la experiencia de usuario.</p>
+      <div class="section-title">
+        <h2>Casos de Éxito</h2>
+        <p>Descubra cómo nuestras soluciones han transformado la operación de nuestros clientes.</p>
+      </div>
+      
+      <!-- Caso 1 -->
+      <div class="case-card">
+        <div class="case-visual">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><rect x="2" y="3" width="20" height="14" rx="2" ry="2"/><line x1="8" y1="21" x2="16" y2="21"/><line x1="12" y1="17" x2="12" y2="21"/></svg>
         </div>
-        <div class="card">
-          <h3>Servicio continuo de evolución para organización de salud</h3>
-          <p>Servicio de desarrollo bajo modalidad iterativa para atender requerimientos evolutivos, priorizar tareas, validar entregas y sostener la continuidad operativa de una plataforma crítica.</p>
+        <div class="case-content">
+          <span class="case-tag">Sector Financiero</span>
+          <h3>Portal de Autogestión Transaccional</h3>
+          <p>Desarrollo de una plataforma integral que centralizó la atención de reclamos y gestiones bancarias, logrando reducir los tiempos de respuesta operativa en un 40% y mejorando la trazabilidad total de los procesos.</p>
         </div>
-        <div class="card">
-          <h3>Automatización de procesos administrativos</h3>
-          <p>Solución informática destinada a estructurar información, reducir tareas manuales y mejorar el seguimiento de actividades mediante procesos controlados y registros consistentes.</p>
+      </div>
+
+      <!-- Caso 2 -->
+      <div class="case-card">
+        <div class="case-visual">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M19 14c1.49-1.46 3-3.21 3-5.5A5.5 5.5 0 0 0 16.5 3c-1.76 0-3 .5-4.5 2-1.5-1.5-2.74-2-4.5-2A5.5 5.5 0 0 0 2 8.5c0 2.3 1.5 4.05 3 5.5l7 7Z"/></svg>
         </div>
-        <div class="card">
-          <h3>Integración de información operativa y comercial</h3>
-          <p>Implementación de mecanismos para consolidar datos, mejorar la disponibilidad de información y facilitar el seguimiento de servicios y proyectos dentro de un entorno controlado.</p>
+        <div class="case-content">
+          <span class="case-tag">Sector Salud</span>
+          <h3>Plataforma de Evolución Crítica</h3>
+          <p>Implementación de un servicio de desarrollo iterativo para una red de clínicas nacionales, permitiendo la actualización constante de sistemas de diagnóstico y gestión de pacientes sin interrupción del servicio.</p>
         </div>
       </div>
     </div>
   </section>
 
-  <section id="oficinas">
+  <section id="equipo" class="section-padding">
     <div class="container">
-      <h2>Nuestras oficinas</h2>
-      <p class="section-intro">
-        La empresa cuenta con presencia en dos ubicaciones estratégicas de la Ciudad Autónoma de Buenos Aires, desde las cuales coordina actividades de dirección, gestión y operación.
-      </p>
-      <div class="grid-2">
-        <div class="card">
-          <h3>Distrito Tecnológico – Parque Patricios</h3>
-          <p>Espacio orientado a actividades de desarrollo, coordinación operativa y trabajo colaborativo de equipos vinculados a proyectos y servicios.</p>
+      <div class="section-title">
+        <h2>Management Team</h2>
+        <p>Liderazgo experimentado guiando la estrategia de Entropix SRL.</p>
+      </div>
+      <div class="team-grid">
+        <!-- Ramiro Ferrero -->
+        <div class="team-card">
+          <div class="profile-img"><img src="ramiro_ferrero.png" alt="Ramiro Ferrero" onerror="this.src='https://ui-avatars.com/api/?name=Ramiro+Ferrero&background=f1f5f9&color=0f172a'"></div>
+          <h4><a href="linkedin_entropix.html#ramiro-ferrero">Ramiro Ferrero</a></h4>
+          <div class="role">Director General</div>
         </div>
-        <div class="card">
+        <!-- Martín Pereyra -->
+        <div class="team-card">
+          <div class="profile-img"><img src="martin_pereyra.png" alt="Martín Pereyra" onerror="this.src='https://ui-avatars.com/api/?name=Martin+Pereyra&background=f1f5f9&color=0f172a'"></div>
+          <h4><a href="linkedin_entropix.html#martin-pereyra">Martín Pereyra</a></h4>
+          <div class="role">Gerente Comercial</div>
+        </div>
+        <!-- Sebastián Acosta -->
+        <div class="team-card">
+          <div class="profile-img"><img src="sebastian_acosta.png" alt="Sebastián Acosta" onerror="this.src='https://ui-avatars.com/api/?name=Sebastian+Acosta&background=f1f5f9&color=0f172a'"></div>
+          <h4><a href="linkedin_entropix.html#sebastian-acosta">Sebastián Acosta</a></h4>
+          <div class="role">Gerente de Operaciones</div>
+        </div>
+        <!-- Verónica Sosa -->
+        <div class="team-card">
+          <div class="profile-img"><img src="veronica_sosa.png" alt="Verónica Sosa" onerror="this.src='https://ui-avatars.com/api/?name=Veronica+Sosa&background=f1f5f9&color=0f172a'"></div>
+          <h4><a href="linkedin_entropix.html#veronica-sosa">Verónica Sosa</a></h4>
+          <div class="role">Gerente de Gestión de Talento</div>
+        </div>
+        <!-- Andrés Romano -->
+        <div class="team-card">
+          <div class="profile-img"><img src="andres_romano.png" alt="Andrés Romano" onerror="this.src='https://ui-avatars.com/api/?name=Andres+Romano&background=f1f5f9&color=0f172a'"></div>
+          <h4><a href="linkedin_entropix.html#andres-romano">Andrés Romano</a></h4>
+          <div class="role">Gerente de Administración y Finanzas</div>
+        </div>
+        <!-- Sofía Ianini -->
+        <div class="team-card">
+          <div class="profile-img"><img src="sofia_ianini.png" alt="Sofía Ianini" onerror="this.src='https://ui-avatars.com/api/?name=Sofia+Ianini&background=f1f5f9&color=0f172a'"></div>
+          <h4><a href="linkedin_entropix.html#sofia-ianini">Sofía Ianini</a></h4>
+          <div class="role">Gerente de Calidad y Procesos</div>
+        </div>
+        <!-- Leandro Bustos -->
+        <div class="team-card">
+          <div class="profile-img"><img src="leandro_bustos.png" alt="Leandro Bustos" onerror="this.src='https://ui-avatars.com/api/?name=Leandro+Bustos&background=f1f5f9&color=0f172a'"></div>
+          <h4><a href="linkedin_entropix.html#leandro-bustos">Leandro Bustos</a></h4>
+          <div class="role">Gerente de IT</div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section id="sedes" class="section-padding" style="background: white; border-top: 1px solid var(--border);">
+    <div class="container">
+      <div class="section-title"><h2>Nuestras Sedes</h2></div>
+      <div class="offices-grid">
+        <div class="office-card">
+          <span class="label" style="background: #dcfce7; color: #166534;">Centro de Ingeniería</span>
+          <h3>Parque Patricios</h3>
+          <p>Ubicada en el Distrito Tecnológico, es el corazón operativo donde residen nuestras células de desarrollo y laboratorios de QA.</p>
+        </div>
+        <div class="office-card">
+          <span class="label" style="background: #eff6ff; color: #1e40af;">Centro de Negocios</span>
           <h3>Puerto Madero</h3>
-          <p>Espacio destinado a reuniones de dirección, gestión comercial, seguimiento ejecutivo y atención de clientes.</p>
+          <p>Espacio destinado a la gestión comercial, dirección ejecutiva y salas de consultoría estratégica para nuestros clientes.</p>
         </div>
       </div>
     </div>
   </section>
 
-  <footer>
+  <footer id="contacto">
     <div class="container">
-      <p><strong>Entropix SRL</strong></p>
-      <p>Desarrollo de software a medida · Servicios de desarrollo · Servicios tecnológicos asociados</p>
-      <p>Ciudad Autónoma de Buenos Aires, Argentina</p>
+      <div class="footer-grid">
+        <div>
+          <div class="brand" style="color: white; margin-bottom: 24px;">ENTROPIX<span>_</span></div>
+          <p>Ingeniería de software y servicios tecnológicos certificados bajo estándares internacionales de calidad y seguridad.</p>
+        </div>
+        <div>
+          <h4 class="footer-title">Contacto</h4>
+          <p>info@entropix-srl.com.ar</p>
+          <p>+54 (11) 4890-0000</p>
+        </div>
+        <div>
+          <h4 class="footer-title">Ubicación</h4>
+          <p>Ciudad Autónoma de Buenos Aires</p>
+          <p>República Argentina</p>
+        </div>
+      </div>
+      <div class="footer-bottom">
+        <p>© 2024 Entropix SRL. Todos los derechos reservados.</p>
+      </div>
     </div>
   </footer>
+
 </body>
 </html>
