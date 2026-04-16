@@ -223,6 +223,39 @@
     }
     .btn-chatgpt:hover { background: #0d8c6d; }
     .btn-chatgpt svg { width: 18px; height: 18px; flex-shrink: 0; }
+
+    .team-photo-card {
+      background: var(--li-white);
+      border-radius: 8px;
+      border: 1px solid var(--li-border);
+      overflow: hidden;
+      margin-bottom: 24px;
+      grid-column: 1 / -1;
+    }
+    .team-photo-card img {
+      width: 100%;
+      max-height: 600px;
+      object-fit: contain;
+      background: #f0f0f0;
+      display: block;
+    }
+    .team-photo-caption {
+      padding: 16px 20px;
+      display: flex;
+      align-items: center;
+      gap: 10px;
+    }
+    .team-photo-caption .en-logo {
+      font-weight: 800;
+      font-size: 18px;
+      color: var(--li-blue);
+      letter-spacing: -0.5px;
+    }
+    .team-photo-caption p {
+      margin: 0;
+      font-size: 14px;
+      color: var(--li-text-muted);
+    }
   </style>
 </head>
 <body>
@@ -257,7 +290,15 @@
   </header>
 
   <div class="main-wrapper">
-    <div class="index-card">
+    <div class="team-photo-card">
+      <img src="entropix_grupal.png" alt="Equipo Entropix SRL">
+      <div class="team-photo-caption">
+        <span class="en-logo">Entropix</span>
+        <p>Nuestro equipo · Buenos Aires, Argentina</p>
+      </div>
+    </div>
+
+        <div class="index-card">
       <h2 style="font-size: 18px; margin: 0 0 12px;">Directorio de Equipo - Entropix SRL</h2>
       <div class="index-grid">
         <a href="#ramiro-ferrero" class="mini-link"><img src="ramiro_ferrero.png" class="mini-avatar" alt="">Ramiro Ferrero</a>
